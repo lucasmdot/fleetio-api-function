@@ -8,11 +8,11 @@ def create_work_order(extracted_data):
     payload = json.dumps({
     "issued_at": "2023-03-14T13:46:27-06:00",
     "started_at": "2023-03-14T13:46:27-06:00",
-    "completed_at": "2023-03-14T13:46:27-06:00",
+    "completed_at": extracted_data['date_of_service'], # format: 2023-03-14T13:46:27-06:00
     "work_order_status_id": 0,
     "invoice_number": "string",
     "vendor_id": 0,
-    "vendor_name": "string",
+    "vendor_name": "string", # extracted_data['name']
     "vehicle_id": 0,
     "vehicle_name": "string",
     "discount_type": "percentage",
@@ -34,7 +34,7 @@ def create_work_order(extracted_data):
     "contact_id": 0,
     "label_list": "High Priority",
     "purchase_order_number": "string",
-    "description": "string",
+    "description": extracted_data['work_done'],
     "number": 0,
     "meter_entry_attributes": {
         "value": "108043",
@@ -81,7 +81,7 @@ def create_work_order(extracted_data):
         "labor_cost": 0,
         "parts_cost": 0,
         "position": 0,
-        "subtotal": 0,
+        "subtotal": int(extracted_data['cost']), # extracted_data['cost']
         "type": "WorkOrderServiceTaskLineItem",
         "vmrs_reason_for_repair_id": 0,
         "vmrs_system_group_id": 0,
@@ -221,8 +221,8 @@ def create_work_order(extracted_data):
     headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Authorization': 'Token INSERT TOKEN',
-    'Account-Token': 'INSERT ACCOUNT TOKEN',
+    'Authorization': 'Token INSERT_TOKEN_HERE',
+    'Account-Token': 'INSERT_ACCOUNT_TOKEN',
     'X-Api-Version': '2024-06-30'
     }
 
