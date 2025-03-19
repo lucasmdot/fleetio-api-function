@@ -221,8 +221,8 @@ def create_work_order(extracted_data):
     headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Authorization': 'Token 1cb42afc18cb6762448b722fd9fc51d748c7eb2d',
-    'Account-Token': '9e27eaa859',
+    'Authorization': 'Token INSERT TOKEN',
+    'Account-Token': 'INSERT ACCOUNT TOKEN',
     'X-Api-Version': '2024-06-30'
     }
 
